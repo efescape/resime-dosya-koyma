@@ -1,26 +1,65 @@
-# 📦 Resim İçine Dosya Gizleme (Python)
+# 📦 Resim Dosyası İçine Veri Gizleme (Python / C++ / C#)
 
-Bu proje, bir resim dosyası (.jpg, .png vb.) ile bir RAR arşivini (.rar) tek bir dosyada birleştirip gizlemeyi sağlar.
+Bu proje, bir resim dosyası (jpg, png vb.) ile bir RAR arşivini tek bir dosyada birleştirip gizlemenizi sağlar.
 
-Sonuç olarak:
-- Ortaya çıkan dosya normal bir resim gibi açılır.
-- WinRAR veya 7-Zip ile açıldığında içine gizlenmiş dosyalar çıkarılabilir.
+Sonuç:
+- Çıktı dosyası normal bir resim gibi açılır.
+- WinRAR veya 7-Zip ile açıldığında içine gizlenen dosyalar çıkarılabilir.
+
+Bu yöntem şifreleme değildir, sadece veri gizleme tekniğidir.
 
 ---
 
 ## 🚀 Nasıl Çalışır?
 
-1. Proje klasörüne:
-   - Bir görsel dosyası (örnek: deneme.jpg)
-   - Bir .rar arşivi (örnek: videolar.rar)
-   - Python scripti (gizle.py)
-   ekleyin.
+JPEG/PNG dosyaları fazladan veri eklendiğinde bozulmaz.  
+Program şu işlemi yapar:
 
-2. Kodu çalıştırın ve soruları cevaplayın.
+1. Resim dosyasını binary olarak okur
+2. RAR dosyasını arkasına ekler
+3. Tek bir dosya olarak kaydeder
 
-## 🧠 Mantık
+CMD’deki şu komut ile aynı işi yapar:
 
-Python, resim dosyasının sonuna RAR dosyasını ekler.  
-JPEG formatı fazladan veri içerdiğinde bozulmadığı için dosya resim olarak görünür.
+copy /b resim.jpg + arsiv.rar cikti.jpg
+
+---
+
+## 📁 Dosya Hazırlığı
+
+Aynı klasörde aşağıdakiler bulunmalıdır:
+
+- Kod dosyası (Python, C++ veya C#)
+- Bir resim dosyası → `deneme.jpg`
+- Bir rar dosyası → `videolar.rar`
+
+---
+
+## ▶️ Kullanım
+
+### Python:
+
+python gizle.py
+
+### C++:
+
+g++ gizle.cpp -o gizle ./gizle
+
+### C# (.NET CLI):
+
+dotnet build dotnet run
+
+Program dosya adlarını soracaktır:
+
+Resim dosyasının adını girin: deneme.jpg RAR dosyasının adını girin: videolar.rar Oluşturulacak dosya adı: gizli.jpg
+
+---
+
+## 🔓 Gizli dosyayı geri çıkarmak
+
+Oluşan `gizli.jpg` dosyasına:
+
+- Sağ tık → **WinRAR ile aç**
+- veya **Klasöre çıkart**
 
 ---
